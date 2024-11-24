@@ -1,7 +1,6 @@
-FROM python:3.12-slim
+FROM python:3.13-alpine3.19
 
-LABEL maintainer="Damir Talipov"
-
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
@@ -10,22 +9,15 @@ WORKDIR /app
 EXPOSE 8000
 
 ARG DEV=false
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        gcc libpq-dev build-essential libjpeg-dev zlib1g-dev libssl-dev && \
-    python -m venv /py && \
+RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
+    apk add --update --no-cache postgresql-client jpeg-dev && \
+    apk add --update --no-cache --virtual .tmp-build-deps \
+        build-base postgresql-dev musl-dev zlib zlib-dev linux-headers && \
     /py/bin/pip install -r /tmp/requirements.txt && \
-    apt-get remove -y gcc build-essential && \
-    apt-get autoremove -y && apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp && \
-    adduser --disabled-password --no-create-home django-user && \
-    mkdir -p /vol/web/media /vol/web/static && \
-    chown -R django-user:django-user /vol && \
-    chmod -R 755 /vol 
+    rm -rf /tmp && \
+    apk del .tmp-build-deps && \
+    mkdir -p /vol/web/media && \
+    mkdir -p /vol/web/static 
 
 ENV PATH="/py/bin:$PATH"
-
-USER django-user
-
-CMD ["run.sh"]
