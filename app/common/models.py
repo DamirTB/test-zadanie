@@ -2,10 +2,17 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 import datetime
 
+
 class Base(models.Model):
     order = models.IntegerField(_('Sorting'), default=0)
-    created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'), null=True, blank=False)
-    updated = models.DateTimeField(verbose_name=_('Updated'), auto_now=True, null=True, blank=False)
+    created = models.DateTimeField(auto_now_add=True, 
+                                   verbose_name=_('Created'), 
+                                   null=True, 
+                                   blank=False)
+    updated = models.DateTimeField(verbose_name=_('Updated'), 
+                                   auto_now=True, 
+                                   null=True, 
+                                   blank=False)
     is_active = models.BooleanField(_('Public'), default=True)
     is_deleted = models.BooleanField(_('Delete status'), default=False)
 
