@@ -41,4 +41,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('api/main/', include('main.urls')),
+    path('api/auth/', include('dj_rest_auth.urls')),
 )
