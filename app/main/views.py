@@ -5,7 +5,6 @@ from .serializers import TaskSerializer, TaskDetailSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 
 from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
 
 
 class TaskViewSet(viewsets.ModelViewSet):
@@ -21,7 +20,8 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     @swagger_auto_schema(
         operation_summary="List all tasks",
-        operation_description="Retrieve a list of tasks, filter by priority or status",
+        operation_description="Retrieve a list of tasks, \
+        filter by priority or status",
         responses={200: TaskSerializer(many=True)},
     )
     def list(self, request, *args, **kwargs):
