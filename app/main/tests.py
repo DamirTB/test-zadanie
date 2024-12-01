@@ -39,7 +39,7 @@ class PublicMainApiTests(APITestCase):
     def test_auth_required(self):
         """Test for unauthorized APIs main"""
         res = self.client.get(TASKS_URL)
-        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
 class PrivateMainApiTests(APITestCase):
@@ -83,12 +83,12 @@ class PrivateMainApiTests(APITestCase):
         res = self.client.patch(detail_url(task.id), payload)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIsNotNone(res.data['finished'])
-    
+
     def test_delete_single_task(self):
         task = create_task()
         res = self.client.delete(detail_url(task.id))
         self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
-    
+
     def test_full_task_update(self):
         task = create_task()
         payload = {
@@ -100,6 +100,21 @@ class PrivateMainApiTests(APITestCase):
         res = self.client.put(detail_url(task.id), payload)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIsNotNone(res.data['finished'])
-    
-    def test_filter_retrieve(self):
-        pass
+
+    def test_filter_status_retrieve(self):
+        create_task(name='First task', status=0, priority=0)
+        create_task(name='Second task', status=1, priority=0)
+        create_task(name='Third task', status=2, priority=0)
+        create_task(name='Fourth task', status=1, priority=0)
+
+        res = self.client.get(TASKS_URL, {'status': 1})
+        self.assertEqual(len(res.data), 2)
+
+    def test_filter_priority_retrieve(self):
+        create_task(name='First task', status=0, priority=1)
+        create_task(name='Second task', status=0, priority=2)
+        create_task(name='Third task', status=0, priority=1)
+        create_task(name='Fourth task', status=0, priority=0)
+
+        res = self.client.get(TASKS_URL, {'priority': 1})
+        self.assertEqual(len(res.data), 2)

@@ -1,3 +1,11 @@
+# Commands for launching in development
+
+use the following command, to launch the application in development
+
+```
+docker-compose up --build
+```
+
 ## Global commands for docker
 ```
 docker system prune -a
@@ -13,10 +21,5 @@ docker rmi $(docker images -a -q)
 docker-compose run --rm app python3 manage.py migrate
 docker-compose run --rm app python3 manage.py makemigrations
 docker-compose run --rm app python3 manage.py createsuperuser
-```
-
-# Rebuild image
-
-```
-docker-compose up --build
+docker-compose run --rm app flake8
 ```
