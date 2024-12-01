@@ -3,4 +3,8 @@ from .models import Task
 
 # Register your models here.
 
-admin.site.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('name', 'priority', 'status', 'finished', 'created', )
+    list_filter = ('priority', 'status', )
+
+admin.site.register(Task, TaskAdmin)
