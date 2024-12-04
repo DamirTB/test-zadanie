@@ -1,0 +1,162 @@
+[
+{
+    "model": "main.task",
+    "pk": 1,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:25:49.619Z",
+        "updated": "2024-12-04T14:25:49.619Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Homework",
+        "text": "Finish the homework",
+        "priority": 1,
+        "status": 0,
+        "finished": null
+    }
+},
+{
+    "model": "main.task",
+    "pk": 2,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:26:34.730Z",
+        "updated": "2024-12-04T14:26:34.730Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Tidy room",
+        "text": "Clean up the personal room",
+        "priority": 0,
+        "status": 1,
+        "finished": "2024-11-30T14:26:00Z"
+    }
+},
+{
+    "model": "main.task",
+    "pk": 3,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:27:16.017Z",
+        "updated": "2024-12-04T14:27:16.017Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Watch cinema",
+        "text": "Go to the cinema",
+        "priority": 0,
+        "status": 2,
+        "finished": null
+    }
+},
+{
+    "model": "main.task",
+    "pk": 4,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:27:49.206Z",
+        "updated": "2024-12-04T14:27:49.206Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Reach 5000 mmr",
+        "text": "Play dota 2 until reaching 5000 mmr",
+        "priority": 2,
+        "status": 1,
+        "finished": "2024-11-29T14:27:00Z"
+    }
+},
+{
+    "model": "main.task",
+    "pk": 5,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:28:24.995Z",
+        "updated": "2024-12-04T14:28:24.995Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Health check up",
+        "text": "Go to the hospital, in order to receive the health check up",
+        "priority": 2,
+        "status": 0,
+        "finished": null
+    }
+},
+{
+    "model": "main.task",
+    "pk": 6,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:28:56.065Z",
+        "updated": "2024-12-04T14:28:56.065Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Visit",
+        "text": "Visit parents in Aktobe",
+        "priority": 2,
+        "status": 1,
+        "finished": "2024-11-28T14:28:00Z"
+    }
+},
+{
+    "model": "main.task",
+    "pk": 7,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:29:33.044Z",
+        "updated": "2024-12-04T14:29:33.044Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Repair",
+        "text": "Repair and clean gaming PC, after a while",
+        "priority": 1,
+        "status": 1,
+        "finished": "2024-11-25T14:29:00Z"
+    }
+},
+{
+    "model": "main.task",
+    "pk": 8,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:30:07.914Z",
+        "updated": "2024-12-04T14:30:07.914Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Write a contest",
+        "text": "Write a div2 contest in codeforces",
+        "priority": 0,
+        "status": 1,
+        "finished": "2024-11-27T11:30:00Z"
+    }
+},
+{
+    "model": "main.task",
+    "pk": 9,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:30:26.657Z",
+        "updated": "2024-12-04T14:30:26.657Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Participate ICPC",
+        "text": "Train for ICPC contest in university",
+        "priority": 1,
+        "status": 2,
+        "finished": null
+    }
+},
+{
+    "model": "main.task",
+    "pk": 10,
+    "fields": {
+        "order": 0,
+        "created": "2024-12-04T14:31:04.903Z",
+        "updated": "2024-12-04T14:31:04.903Z",
+        "is_active": true,
+        "is_deleted": false,
+        "name": "Coursera subjects",
+        "text": "Receive certificates of coursera subject, to close them in advance",
+        "priority": 1,
+        "status": 1,
+        "finished": "2024-11-28T12:37:00Z"
+    }
+}
+]
